@@ -1,0 +1,81 @@
+---
+title: "Analysis of Wines"
+author: "PJ Taal"
+date: "2025-05-31"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+library zoo
+
+```{r}
+library(dplyr)
+library(tidyverse)
+library(DataExplorer)
+```
+
+Read in Data
+
+```{r}
+#The delimiter used in the original datasets are delimited by a semi-colon instead of a comma as is typical
+rd <- read.csv("wine+quality/winequality-red.csv", sep = ";")
+
+wt <- read.csv("wine+quality/winequality-white.csv",sep = ";")
+```
+
+Combine the datasets 
+```{r}
+identical(names(rd),names(wt))
+
+
+df_wr <- bind_rows(
+  rd %>% mutate(is_rd = TRUE),
+  wt %>% mutate(is_rd = FALSE)   
+)
+
+
+```
+
+Initital Sandbox
+
+
+```{r}
+str(df_wr)
+glimpse(df_wr)
+names(df_wr) <- gsub("\\.", 
+                     "_",
+                     names(df_wr))
+
+
+summary(df_wr)
+plot_histogram(df_wr)
+create_report(df_wr)
+```
+
+Do the variables need transformation?
+
+```{r}
+#alcohol
+   #this column doesn't need much in the way of transformation, I'm going to start by scaling and go      #from there 
+df_wr$alcohol_scaled <- scale(df_wr$alcohol)
+
+hist(df_wr$alcohol_scaled)
+
+summary(df_wr$alcohol_scaled)
+
+quantile(df_wr$alcohol_scaled)
+
+#density
+  #I looked at density next because it had good correlation with normalizing
+
+df_wr$density_norm <- (df_wr$density - min(df_wr$density)) / (max(df_wr$density) - min(df_wr$density))
+hist(df_wr$density_norm)
+hist(df_wr$density)
+df_wr$density_scaled <- scale(df_wr$density)
+hist(df_wr$density_scaled)
+```
+
+
+
+
