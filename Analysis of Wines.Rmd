@@ -76,6 +76,19 @@ df_wr$density_scaled <- scale(df_wr$density)
 hist(df_wr$density_scaled)
 ```
 
+```{r}
+df_numeric <- df_wr %>% select(where(is.numeric))
+
+df_long <- df_numeric %>% pivot_longer(cols = everything(),names_to = "variable", values_to = "value")
+
+ggplot(df_long, aes(x = variable, y = value)) +
+  geom_boxplot(fill = "lightblue", outlier.color = "red", outlier.size = 1) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  labs(title = "Boxplots of Numeric Variables", x = "Variable", y = "Value")
+
+
+```
 
 
 
