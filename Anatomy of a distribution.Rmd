@@ -34,8 +34,6 @@ ggplot(data, aes(x = hwy)) +
 ```
 
 ## 3. Density Plot
-
-A density plot is a smooth, continuous curve that approximates the probability distribution of a numeric variable.
 ```{r density-plot}
 ggplot(data, aes(x = hwy)) +
   geom_density(fill = 'lightgreen') +
@@ -78,29 +76,5 @@ ggplot(data, aes(x = log_hwy)) +
   labs(title = "Log-Transformed Histogram of Highway MPG")
 ```
 
-## 8. What about other kinds of distributions?
-
-Uniform distribution
-  Assigns the same probability to intervals having the same lenght and belonging to its support
-  
-Normal distribution
-  The most famous distribution in the list, used to model a variety of natural and social phenomena
-
-Exponential distiribution
-  This probability distribution is most commonly used to model waiting times
-
-Chi-square distribution
-  The sum of squared normal random variable to the square root of a gamma
-
-## 9. Statistical Tests
-
-Chi-Squared test
-
-## 10. Explain P-value
-
-maybe go into error here as well.
-
-## 11. Conclusion
+## 8. Conclusion
 This document explored the anatomy of a distribution using visualizations, summary statistics, and transformations to understand the shape, spread, and structure of a numeric variable.
-
-
