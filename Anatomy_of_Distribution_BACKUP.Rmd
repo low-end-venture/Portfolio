@@ -1,0 +1,104 @@
+---
+title: "Anatomy of a Distribution"
+author: "PJ Taal"
+date: "2025-06-04"
+output: html_document
+---
+---
+title: "Anatomy of a Distribution"
+author: "Your Name"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+library(tidyverse)
+library(ggplot2)
+library(e1071)  # For skewness and kurtosis
+```
+
+## 1. Load and Inspect Data
+We'll use the `mpg` dataset from the `ggplot2` package.
+
+```{r load-data}
+data <- mpg
+summary(data$hwy)
+```
+
+## 2. Histogram
+```{r histogram}
+ggplot(data, aes(x = hwy)) +
+  geom_histogram(bins = 15, fill = 'skyblue', color = 'black') +
+  labs(title = "Histogram of Highway MPG", x = "Highway MPG", y = "Count")
+```
+
+## 3. Density Plot
+
+A density plot is a smooth, continuous curve that approximates the probability distribution of a numeric variable.
+```{r density-plot}
+ggplot(data, aes(x = hwy)) +
+  geom_density(fill = 'lightgreen') +
+  labs(title = "Density Plot of Highway MPG")
+```
+
+## 4. Boxplot
+```{r boxplot}
+ggplot(data, aes(y = hwy)) +
+  geom_boxplot(fill = 'orange') +
+  labs(title = "Boxplot of Highway MPG", y = "Highway MPG")
+```
+
+## 5. Summary Statistics
+```{r summary-stats}
+hwy_stats <- data %>%
+  summarise(
+    mean = mean(hwy),
+    median = median(hwy),
+    sd = sd(hwy),
+    skewness = skewness(hwy),
+    kurtosis = kurtosis(hwy)
+  )
+hwy_stats
+```
+
+## 6. Q-Q Plot
+Check normality visually.
+
+```{r qqplot}
+qqnorm(data$hwy)
+qqline(data$hwy, col = "red")
+```
+
+## 7. Transformation Example
+```{r log-transform}
+data <- data %>% mutate(log_hwy = log(hwy))
+ggplot(data, aes(x = log_hwy)) +
+  geom_histogram(bins = 15, fill = 'purple', color = 'black') +
+  labs(title = "Log-Transformed Histogram of Highway MPG")
+```
+
+## 8. What about other kinds of distributions?
+
+Uniform distribution
+  Assigns the same probability to intervals having the same lenght and belonging to its support
+  
+Normal distribution
+  The most famous distribution in the list, used to model a variety of natural and social phenomena
+
+Exponential distiribution
+  This probability distribution is most commonly used to model waiting times
+
+Chi-square distribution
+  The sum of squared normal random variable to the square root of a gamma
+
+## 9. Statistical Tests
+
+Chi-Squared test
+
+## 10. Explain P-value
+
+## 11. Conclusion
+This document explored the anatomy of a distribution using visualizations, summary statistics, and transformations to understand the shape, spread, and structure of a numeric variable.
+
+
