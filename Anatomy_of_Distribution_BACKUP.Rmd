@@ -78,6 +78,18 @@ ggplot(data, aes(x = log_hwy)) +
 
 ## 8. What about other kinds of distributions?
 
+Uniform distribution
+  Assigns the same probability to intervals having the same lenght and belonging to its support
+  
+Normal distribution
+  The most famous distribution in the list, used to model a variety of natural and social phenomena
+
+Exponential distiribution
+  This probability distribution is most commonly used to model waiting times
+
+Chi-square distribution
+  The sum of squared normal random variable to the square root of a gamma
+
 ## 9. Statistical Tests
 
 ## 10. Explain P-value
