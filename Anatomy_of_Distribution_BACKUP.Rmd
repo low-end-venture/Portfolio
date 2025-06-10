@@ -78,6 +78,7 @@ ggplot(data, aes(x = log_hwy)) +
 
 ## 8. What about other kinds of distributions?
 
+## 9. Statistical Tests
 
 
 
