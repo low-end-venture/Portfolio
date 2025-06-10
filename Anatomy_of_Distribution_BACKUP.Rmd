@@ -35,7 +35,9 @@ ggplot(data, aes(x = hwy)) +
 
 ## 3. Density Plot
 
+
 A density plot is a smooth, continuous curve that approximates the probability distribution of a numeric variable.
+
 ```{r density-plot}
 ggplot(data, aes(x = hwy)) +
   geom_density(fill = 'lightgreen') +
@@ -94,7 +96,9 @@ Chi-square distribution
 
 ## 9. Statistical Tests
 
+
 Chi-Squared test
+
 
 ## 10. Explain P-value
 
