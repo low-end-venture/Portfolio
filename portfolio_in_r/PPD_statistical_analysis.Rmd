@@ -1,0 +1,52 @@
+---
+title: "Generic Statistical Analysis"
+author: "PJ Taal"
+date: "2025-06-13"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+library zoo
+
+Libraries or Packages are collections of functions, data, and documentation that augment R's base abilities to accomplish specialized tasks such as data exploration, manipulation, visualization, prediction etc. 
+
+```{r}
+library(dplyr)
+library(DataExplorer)
+```
+
+
+###Descriptive Analytics
+
+This is the foundational phase. Here, I want to organize and summarize historical/existing data to understand past and current patterns.
+
+
+##
+Load the data
+```{r}
+df <- read.csv("archive/WA_Fn-UseC_-HR-Employee-Attrition.csv")
+```
+
+```{r}
+summary(df)
+summary(df$EmployeeNumber)
+
+```
+
+```{r}
+create_report(df)
+```
+
+```{r}
+names(df)
+```
+
+
+
+
+
+
