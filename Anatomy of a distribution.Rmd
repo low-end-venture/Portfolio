@@ -18,6 +18,9 @@ library(ggplot2)
 library(e1071)  # For skewness and kurtosis
 ```
 
+I definitely need to dump the _BACKUP file
+
+
 ## 1. Load and Inspect Data
 We'll use the `mpg` dataset from the `ggplot2` package.
 
