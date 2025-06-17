@@ -66,6 +66,7 @@ hwy_stats
 
 ## 6. Q-Q Plot
 Check normality visually.
+Can show kurtosis
 
 ```{r qqplot}
 qqnorm(data$hwy)
