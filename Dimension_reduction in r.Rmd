@@ -5,13 +5,18 @@ editor_options:
   chunk_output_type: console
 ---
 
-
-
 Library Zoo
 ```{r}
 library(data.table)
 library(readxl)
 ```
+
+##############
+What the heck is dimensionality reduction?
+##############
+
+
+Dimensionality Reduction is the process of reducing the number of input variables (features) in your dataset while preserving as much of the original information as possible.
 
 
 
