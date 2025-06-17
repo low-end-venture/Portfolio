@@ -69,17 +69,25 @@ Check normality visually.
    -A Quantile-Quantile plot is a graphical tool that is used to compare the        quantiles of a dataset with the quantiles of a theoretical distribution         (most  often the Normal Distribution.)
    -If the data is from the theoretical distribution, points will lie along a       straight 45 degree line. 
 
-##KEY COMPONENTS TO KNOW:
+## KEY COMPONENTS TO KNOW:
   - X-Axis Theoretical Quantiles
   - Y-Axis Sample Quantiles from your data 
 
-#Why use a Q-Q Plot?
+## Why use a Q-Q Plot?
    
    -check if it follows a normal distribution
    -detect skewness kurtosis and outliers
    -validate assumptions for parametric tests
    -compare two datasets. (will need more explanation for this)
    
+## How to read a Q-Q plot
+
+   - Points close to the line mean the data matches the theoretical distribution well.
+   - S-shaped curve indicates skewness
+        *Upward curve means right skew
+        *Downward curve means left skew
+   - Heavy Tails U-shaped or inverted U shaped. Indicates Kurtosis, which means there are too many or too few extreme values. 
+   - Outliers appear as points far from the line
    
 ```{r qqplot}
 qqnorm(data$hwy)
