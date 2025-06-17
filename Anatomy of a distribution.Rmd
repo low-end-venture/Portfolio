@@ -66,6 +66,10 @@ Check normality visually.
 A Quantile-Quantile plot is a graphical tool that is used to compare the quantiles of a dataset with the quantiles of a theoretical distribution (most often the Normal Distribution.)
    #If the data is from the theoretical distribution, points will lie along a straight 45 degree line. 
 
+KEY COMPONENTS TO KNOW:
+  - X-Axis Theoretical Quantiles
+  - Y-Axis Sample Quantiles from your data 
+
 #Why use a Q-Q Plot?
    
    -check if it follows a normal distribution
