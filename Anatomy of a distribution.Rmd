@@ -92,6 +92,12 @@ Check normality visually.
    - Heavy Tails U-shaped or inverted U shaped. Indicates Kurtosis, which means there are too many or too few extreme values. 
    - Outliers appear as points far from the line
    
+## When is a Q-Q plot Most Useful
+
+  Before applying linear regression or ANOVA
+  During EDA when checking for transformations 
+  Model Diagnostics in Time series
+   
 ```{r qqplot}
 qqnorm(data$hwy)
 qqline(data$hwy, col = "red")
