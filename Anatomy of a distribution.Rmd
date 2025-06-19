@@ -59,7 +59,13 @@ ggplot(data, aes(y = hwy)) +
   labs(title = "Boxplot of Highway MPG", y = "Highway MPG")
 ```
 
-## 3. Summary Statistics
+## 3. Key components of shapes
+
+  ##Center
+  ##Spread
+  ##Skewness
+  ##Kurtosis
+  
 ```{r summary-stats}
 hwy_stats <- data %>%
   summarise(
