@@ -1,0 +1,52 @@
+---
+title: "Dimensionality reduction in R"
+output: html_notebook
+editor_options: 
+  chunk_output_type: console
+---
+
+Library Zoo
+```{r}
+library(data.table)
+library(readxl)
+```
+
+##############
+What the heck is dimensionality reduction?
+##############
+
+
+Dimensionality Reduction is the process of reducing the number of input variables (features) in your dataset while preserving as much of the original information as possible.
+
+
+lets go with a different dataset for now
+```{r}
+df1 <- read.csv("drug_induced_autoimmunity_prediction/DIA_testset_RDKit_descriptors.csv")
+df2 <- read.csv("drug_induced_autoimmunity_prediction/DIA_trainingset_RDKit_descriptors.csv")
+dfCdef <- read.csv("drug_induced_autoimmunity_prediction/RDKit_ChemDes.csv")
+
+head(df1)
+head(df2)
+
+summary(df1)
+summary(df2)
+```
+
+turn RDKit...into a csv
+
+```{r}
+
+chem_des <- read_excel("drug_induced_autoimmunity_prediction/RDKit_ChemDes.xlsx")
+write.csv(chem_des,'RDKit_ChemDes.csv',row.names = FALSE)
+
+```
+
+I'm not sure whats going on here, but let's get going
+
+
+
+
+
+
+
+
