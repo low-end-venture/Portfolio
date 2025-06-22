@@ -29,17 +29,11 @@ let's use smartphone data for now
 df <- read.csv("Smartphones_cleaned_dataset.csv")
 ```
 
-turn RDKit...into a csv
+let's look at a summary of the raw data
 
 ```{r}
-
-chem_des <- read_excel("drug_induced_autoimmunity_prediction/RDKit_ChemDes.xlsx")
-write.csv(chem_des,'RDKit_ChemDes.csv',row.names = FALSE)
-
+summary(df)
 ```
-
-I'm not sure whats going on here, but let's get going
-
 
 
 
