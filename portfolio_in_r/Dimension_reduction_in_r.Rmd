@@ -1,0 +1,54 @@
+---
+title: "Dimensionality reduction in R"
+output: html_notebook
+editor_options: 
+  chunk_output_type: console
+---
+
+Library Zoo
+```{r}
+library(data.table)
+library(readxl)
+library(tidyverse)
+library(dplyr)
+
+```
+
+##############
+What the heck is dimensionality reduction?
+##############
+
+## I'm not really sure what the project on this will actually be but I know that I want to use the Smartphone Dataset on kaggle.
+
+
+
+Dimensionality Reduction is the process of reducing the number of input variables (features) in your dataset while preserving as much of the original information as possible.
+
+
+
+
+let's use smartphone data for now
+```{r}
+df <- read.csv("Smartphones_cleaned_dataset.csv")
+```
+
+let's look at a summary of the raw data
+
+```{r}
+summary(df)
+```
+
+let's look at those NA's
+
+```{r}
+dfna <- names(df)[colSums(is.na(df)) > 0] 
+
+df_subset <- df %>% select(all_of(dfna))
+
+
+```
+
+
+
+
+
