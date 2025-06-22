@@ -9,6 +9,9 @@ Library Zoo
 ```{r}
 library(data.table)
 library(readxl)
+library(tidyverse)
+library(dplyr)
+
 ```
 
 ##############
@@ -35,7 +38,15 @@ let's look at a summary of the raw data
 summary(df)
 ```
 
+let's look at those NA's
 
+```{r}
+dfna <- names(df)[colSums(is.na(df)) > 0] 
+
+df_subset <- df %>% select(all_of(dfna))
+
+
+```
 
 
 
