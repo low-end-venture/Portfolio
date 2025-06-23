@@ -46,6 +46,22 @@ dfna <- names(df)[colSums(is.na(df)) > 0]
 df_subset <- df %>% select(all_of(dfna))
 
 
+summary(df_subset)
+```
+
+At this point I want to see what I can do with the NA's.  
+
+## Different types of NAs
+
+MCAR (Missing Completely At Random) – no pattern; safe to ignore or impute.
+
+MAR (Missing At Random) – depends on observed data (e.g., missing income based on age).
+
+MNAR (Missing Not At Random) – depends on unobserved data (e.g., people with high income skip the question).
+
+For example, in the "num_front_cameras" column, there are only 4 NAs. It may make sense to ignore these rows or turn them into zeros. On the other hand, the "extended-upto" column has almost 50% of the rows with an NA, this might justify dropping the column or further investigating for things like extraction errors, etc. 
+
+
 ```
 
 
