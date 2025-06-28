@@ -1,4 +1,5 @@
 basic gate choosing game
 	need a hook. think of things that can "evolve"
 basic tycoon game
+	maybe I need to storyboard an idea 
 maybe its time to gameify management tools
