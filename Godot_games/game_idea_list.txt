@@ -2,4 +2,7 @@ basic gate choosing game
 	need a hook. think of things that can "evolve"
 basic tycoon game
 	maybe I need to storyboard an idea 
+basic simulator game
+	I think its time to simulate the bar I've always wanted
+	Can we work in discrete event simulation models?
 maybe its time to gameify management tools
