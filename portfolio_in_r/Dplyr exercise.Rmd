@@ -24,3 +24,16 @@ mtcars |> summarize(avg=mean(mpg))
 mtcars |> count(cyl)
 ```
 
+Group Cases
+
+```{r}
+mtcars |>
+  group_by(cyl)|>
+  summarize(avg = mean(mpg))
+
+starwars |> 
+  rowwise() |>
+  mutate(film_count = length(films))
+```
+
+
