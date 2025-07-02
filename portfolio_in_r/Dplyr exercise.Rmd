@@ -1,0 +1,46 @@
+---
+title: "dplyr exercise"
+author: "PJ Taal"
+date: "2025-06-30"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+Library zoo
+```{r}
+library(dplyr)
+library(tidyr)
+```
+
+Summarize cases
+
+```{r}
+mtcars |> summarize(avg=mean(mpg))
+
+mtcars |> count(cyl)
+```
+
+Group Cases
+
+```{r}
+#Use group_by to create a "grouped copy of a table grouped by columns in ... dplyr functions will manipulate each "group" separately and combine the results.
+mtcars |>
+  group_by(cyl)|>
+  summarize(avg = mean(mpg))
+
+
+starwars |> 
+  rowwise() |>
+  mutate(film_count = length(films))
+```
+
+```{r}
+g_
+```
+
+
+
