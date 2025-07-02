@@ -46,7 +46,24 @@ g_mtcars <- mtcars |>
 ungroup(g_mtcars)
 ```
 
+
+Manipulate Cases
+
+
 ```{r}
+## Extract Cases
+
+# filter | Extract rows that meet logical criteria
+mtcars |> filter(mpg > 20)
+
+# distinct | Remove rows with duplicate values
+mtcars |> distinct(gear)
+
+# slice | select row by position
+mtcars |> slice(10:15)
+
+
+  
 
 ```
 
