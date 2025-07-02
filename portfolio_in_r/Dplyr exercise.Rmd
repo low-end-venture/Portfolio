@@ -33,6 +33,11 @@ mtcars |>
   summarize(avg = mean(mpg))
  
 # Use Row wise to group data into individual rows. dplyr functions will compute results for each row. Also apply functions to list-columns. See tidyr cheat sheet for list-column workflow.  
+=======
+mtcars |>
+  group_by(cyl)|>
+  summarize(avg = mean(mpg))
+
 
 starwars |> 
   rowwise() |>
@@ -66,6 +71,7 @@ mtcars |> slice(10:15)
   
 
 ```
+
 
 
 
