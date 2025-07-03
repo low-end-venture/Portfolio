@@ -33,7 +33,8 @@ mtcars |>
   summarize(avg = mean(mpg))
  
 # Use Row wise to group data into individual rows. dplyr functions will compute results for each row. Also apply functions to list-columns. See tidyr cheat sheet for list-column workflow.  
-=======
+
+
 mtcars |>
   group_by(cyl)|>
   summarize(avg = mean(mpg))
@@ -55,6 +56,16 @@ ungroup(g_mtcars)
 Manipulate Cases
 
 
+
+## Extract Cases
+    ### Row functions return subset of rows as a new table
+
+```{r}
+# filter | Extract rows that meet logical criteria
+mtcars |> filter(mpg > 20)
+
+# distinct | Remove rows with duplicate rows
+
 ```{r}
 ## Extract Cases
 
@@ -62,13 +73,84 @@ Manipulate Cases
 mtcars |> filter(mpg > 20)
 
 # distinct | Remove rows with duplicate values
+
 mtcars |> distinct(gear)
 
 # slice | select row by position
 mtcars |> slice(10:15)
 
+# slice_sample | select row by position
+mtcars |> slice_sample(n=5, replace= TRUE)
 
-  
+# slice_min | select rows with the lowest value, can use "n" number or proportion of lowest rows
+mtcars |> slice_min(mpg,prop = 0.25)
+
+#slice_max |  select rows with the highest value, can use "n" number or proportion of highest rows
+mtcars |> slice_max(mpg,prop = 0.25)
+
+#slice head / slice tail | select the first or last "n" number or proportion of rows
+mtcars |> slice_head(n=5) 
+mtcars |> slice_tail(prop = .15)
+
+```
+
+
+## Arrange Cases
+    ### Row functions return rows by values of a column or columns ordered by high or low
+    
+```{r}
+# arrange 
+mtcars |> arrange(mpg)
+mtcars |> arrange(desc(mpg))
+```
+
+## Add Cases
+   ### Add a row to a table will and NA to unspecified value
+
+```{r}
+cars |> add_row()
+```
+
+Manipulate Variables
+
+## Extract Variales
+  ### Column functions return a set of columns as a new vector or table
+
+```{r}
+# pull | Extract column values as a vector, by name or index
+mtcars |> pull(wt)
+
+# select | Extract columns as a vector
+mtcars |> select(mpg,wt)
+
+# relocate
+mtcars |> relocate(mpg, cyl, .after = last_col())
+
+```
+
+## MANIPULATE MULTIPLE VARIABLES AT ONCE
+  ### 
+
+```{r}
+df <- tibble(x_1 = c(1, 2), x_2 = c(3, 4), y = c(4, 5))
+```
+
+```{r}
+# across | Summarize or mutate multiple columns in the same way 
+df |> summarize(across(everything(),mean))
+
+#c_across
+df |> 
+  rowwise() |>
+  mutate(x_total = sum(c_across(1:2)))
+```
+
+## MAKE NEW VARIABLES
+
+```{r}
+# Mutate
+# Rename
+
 
 ```
 
