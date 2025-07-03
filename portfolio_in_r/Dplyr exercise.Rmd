@@ -50,11 +50,10 @@ ungroup(g_mtcars)
 Manipulate Cases
 
 
-```{r}
 ## Extract Cases
     ### Row functions return subset of rows as a new table
 
-
+```{r}
 # filter | Extract rows that meet logical criteria
 mtcars |> filter(mpg > 20)
 
@@ -78,6 +77,25 @@ mtcars |> slice_head(n=5)
 mtcars |> slice_tail(prop = .15)
 
 ```
+
+
+## Arrange Cases
+    ### Row functions return rows by values of a column or columns ordered by high or low
+    
+```{r}
+# arrange 
+mtcars |> arrange(mpg)
+mtcars |> arrange(desc(mpg))
+```
+
+## Add Cases
+   ### Add a row to a table will and NA to unspecified value
+
+```{r}
+cars |> add_row()
+```
+
+
 
 
 
