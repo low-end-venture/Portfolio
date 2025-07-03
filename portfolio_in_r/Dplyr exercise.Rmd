@@ -95,6 +95,23 @@ mtcars |> arrange(desc(mpg))
 cars |> add_row()
 ```
 
+Manipulate Variables
+
+## Extract Variales
+  ### Column functions return a set of columns as a new vector or table
+
+```{r}
+# pull | Extract column values as a vector, by name or index
+mtcars |> pull(wt)
+
+# select | Extract columns as a vector
+mtcars |> select(mpg,wt)
+
+# relocate
+mtcars |> relocate(mpg, cyl, .after = last_col())
+
+```
+
 
 
 
