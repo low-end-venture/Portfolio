@@ -112,6 +112,29 @@ mtcars |> relocate(mpg, cyl, .after = last_col())
 
 ```
 
+## MANIPULATE MULTIPLE VARIABLES AT ONCE
+  ### 
+
+```{r}
+df <- tibble(x_1 = c(1, 2), x_2 = c(3, 4), y = c(4, 5))
+```
+
+```{r}
+# across | Summarize or mutate multiple columns in the same way 
+df |> summarize(across(everything(),mean))
+
+#c_across
+df |> 
+  rowwise() |>
+  mutate(x_total = sum(c_across(1:2)))
+```
+
+## MAKE NEW VARIABLES
+
+```{r}
+# Mutate
+# Rename
+```
 
 
 
