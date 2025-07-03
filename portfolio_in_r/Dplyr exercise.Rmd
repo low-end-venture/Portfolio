@@ -1,0 +1,83 @@
+---
+title: "dplyr exercise"
+author: "PJ Taal"
+date: "2025-06-30"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+Library zoo
+```{r}
+library(dplyr)
+library(tidyr)
+```
+
+Summarize cases
+
+```{r}
+mtcars |> summarize(avg=mean(mpg))
+
+mtcars |> count(cyl)
+```
+
+Group Cases
+
+```{r}
+#Use group_by to create a "grouped copy of a table grouped by columns in ... dplyr functions will manipulate each "group" separately and combine the results.
+mtcars |>
+  group_by(cyl)|>
+  summarize(avg = mean(mpg))
+ 
+# Use Row wise to group data into individual rows. dplyr functions will compute results for each row. Also apply functions to list-columns. See tidyr cheat sheet for list-column workflow.  
+
+starwars |> 
+  rowwise() |>
+  mutate(film_count = length(films))
+
+#ungroup returns ungrouped copy of table.
+g_mtcars <- mtcars |>
+  group_by(cyl) |>
+  summarise(count=n())
+
+ungroup(g_mtcars)
+```
+
+
+Manipulate Cases
+
+
+```{r}
+## Extract Cases
+    ### Row functions return subset of rows as a new table
+
+
+# filter | Extract rows that meet logical criteria
+mtcars |> filter(mpg > 20)
+
+# distinct | Remove rows with duplicate rows
+mtcars |> distinct(gear)
+
+# slice | select row by position
+mtcars |> slice(10:15)
+
+# slice_sample | select row by position
+mtcars |> slice_sample(n=5, replace= TRUE)
+
+# slice_min | select rows with the lowest value, can use "n" number or proportion of lowest rows
+mtcars |> slice_min(mpg,prop = 0.25)
+
+#slice_max |  select rows with the highest value, can use "n" number or proportion of highest rows
+mtcars |> slice_max(mpg,prop = 0.25)
+
+#slice head / slice tail | select the first or last "n" number or proportion of rows
+mtcars |> slice_head(n=5) 
+mtcars |> slice_tail(prop = .15)
+
+```
+
+
+
